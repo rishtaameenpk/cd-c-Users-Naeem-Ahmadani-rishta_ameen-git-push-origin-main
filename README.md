@@ -2,59 +2,93 @@
 
 Pakistani matrimonial platform with a **demo test app** you can try on your phone.
 
-## Test on your phone now
+## Run on your phone with Chrome (localhost / same Wi‑Fi)
 
-### Step 1 — Enable GitHub Pages (one time)
+`localhost` on your phone means the phone itself — not your computer.  
+Use your **computer's IP address** on the same Wi‑Fi network.
 
-1. Open: https://github.com/rishtaameenpk/cd-c-Users-Naeem-Ahmadani-rishta_ameen-git-push-origin-main/settings/pages
-2. **Source:** Deploy from a branch
-3. **Branch:** `main` → folder **`/docs`**
-4. Click **Save**, wait 1–2 minutes
+### Windows (easiest)
 
-### Step 2 — Open the test app
+1. Download or clone this repo on your PC
+2. Double-click **`start-mobile.bat`**
+3. Note the URL shown, e.g. `http://192.168.1.10:8080`
+4. On your phone:
+   - Connect to the **same Wi‑Fi** as your PC
+   - Open **Google Chrome**
+   - Type the URL in the address bar (example: `http://192.168.1.10:8080`)
+5. Keep the PC window open while testing
+
+### Mac / Linux
+
+```bash
+chmod +x start-mobile.sh
+./start-mobile.sh
+```
+
+Then open the shown `http://192.168.x.x:8080` URL in **Chrome on your phone**.
+
+### Manual start
+
+```bash
+cd docs
+python3 -m http.server 8080 --bind 0.0.0.0
+```
+
+Find your PC IP:
+
+- **Windows:** open CMD → `ipconfig` → look for **IPv4 Address**
+- **Mac:** System Settings → Wi‑Fi → Details → IP address
+- **Android phone URL example:** `http://192.168.1.10:8080`
+
+### If phone cannot connect
+
+- Phone and PC must be on the **same Wi‑Fi** (not mobile data)
+- Allow Python through **Windows Firewall** when asked
+- Try turning off VPN on phone or PC
+- Do not use `localhost` on the phone — use the `192.168.x.x` IP
+
+---
+
+## Live site (no PC needed)
 
 **https://rishtaameenpk.github.io/cd-c-Users-Naeem-Ahmadani-rishta_ameen-git-push-origin-main/**
+
+Open this in Chrome on your phone anytime — works without running a local server.
+
+---
 
 ## What you can test
 
 | Screen | What to try |
 |--------|-------------|
-| **Home** | Read intro, tap Create Test Profile / Browse Profiles |
-| **Register** | Fill form with your details, tap Save Test Profile |
-| **Browse** | View 3 demo profiles + your saved profile, tap Show Interest |
-| **My Profile** | See your saved test profile on this phone |
+| **Home** | Tap Create Test Profile / Browse Profiles |
+| **Register** | Fill form → Save Test Profile |
+| **Browse** | View demo profiles → Show Interest |
+| **My Profile** | See your saved test profile |
 
-Data is stored **only on your device** (demo mode). Nothing is sent to a server.
+Data is saved **only on your phone** (demo mode).
 
 ## Install like an app (optional)
 
-- **iPhone:** Safari → Share → Add to Home Screen
-- **Android:** Chrome → Menu → Add to Home screen
-
-## Local testing (on computer)
-
-```bash
-cd docs
-python3 -m http.server 8080
-```
-
-Open `http://localhost:8080` in your browser (use phone on same Wi‑Fi with your computer's IP if needed).
+- **Android Chrome:** Menu (⋮) → Add to Home screen
+- **iPhone Safari:** Share → Add to Home Screen
 
 ## Project structure
 
 ```
-docs/
-├── index.html       # Mobile test app
-├── js/app.js        # Register, browse, profile logic
-├── css/style.css    # Mobile-first styles
-├── manifest.json    # Installable web app
-├── sw.js            # Offline support
-└── icons/           # App icons
+├── start-mobile.bat   # Windows: run app for phone testing
+├── start-mobile.sh    # Mac/Linux: run app for phone testing
+└── docs/
+    ├── index.html     # Mobile test app
+    ├── js/app.js
+    ├── css/style.css
+    ├── manifest.json
+    └── sw.js
 ```
 
 ## Note
 
-This is a **test/demo web app**, not the full native Android/iOS app. It lets you check layout, forms, and navigation on your phone before a full launch.
+This is a **test/demo web app**, not a native Google Play app yet.
 
 ## License
 
