@@ -2,6 +2,25 @@
 
 Pakistani matrimonial and matchmaking platform helping individuals find compatible life partners.
 
+## View on Your Mobile Device
+
+After GitHub Pages is enabled (see **Deployment** below), open this URL on your phone:
+
+**https://rishtaameenpk.github.io/cd-c-Users-Naeem-Ahmadani-rishta_ameen-git-push-origin-main/**
+
+### Quick steps
+
+1. On your phone, open **Chrome** or **Safari**
+2. Paste the URL above into the address bar
+3. The site is mobile-friendly — use the menu icon (☰) in the top-right on small screens
+
+### Add to Home Screen (optional)
+
+- **iPhone (Safari):** Tap Share → **Add to Home Screen**
+- **Android (Chrome):** Tap ⋮ menu → **Add to Home screen**
+
+This lets you open Rishta Ameen like an app from your home screen.
+
 ## Live Site
 
 Once GitHub Pages is enabled, the site will be available at:
