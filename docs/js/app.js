@@ -179,5 +179,37 @@ renderMyProfile();
 showScreen('screen-home');
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  const swUrl = new URL('sw.js', window.location.href);
+  navigator.serviceWorker.register(swUrl.pathname, { scope: './' }).catch(() => {});
+}
+
+const helpUrl = document.getElementById('open-help-url');
+const copyBtn = document.getElementById('copy-link-btn');
+const helpBox = document.getElementById('open-help');
+const helpClose = document.getElementById('open-help-close');
+
+if (helpUrl) {
+  helpUrl.textContent = window.location.origin + window.location.pathname.replace(/\/$/, '') + '/';
+}
+
+if (copyBtn) {
+  copyBtn.addEventListener('click', async () => {
+    const link = helpUrl ? helpUrl.textContent : window.location.href;
+    try {
+      await navigator.clipboard.writeText(link);
+      showToast('Link copied. Paste in Chrome on your phone.');
+    } catch {
+      showToast('Copy this link: ' + link);
+    }
+  });
+}
+
+if (helpClose && helpBox) {
+  helpClose.addEventListener('click', () => {
+    helpBox.hidden = true;
+    localStorage.setItem('rishta-ameen-help-dismissed', '1');
+  });
+  if (localStorage.getItem('rishta-ameen-help-dismissed') === '1') {
+    helpBox.hidden = true;
+  }
 }

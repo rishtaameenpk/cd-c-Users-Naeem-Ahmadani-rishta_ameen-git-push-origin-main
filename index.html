@@ -8,14 +8,43 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Rishta Ameen">
   <title>Rishta Ameen — Test App</title>
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      if (!path.endsWith('/')) {
+        path = path.substring(0, path.lastIndexOf('/') + 1);
+      }
+      var base = document.createElement('base');
+      base.href = path || '/';
+      document.head.appendChild(base);
+    })();
+  </script>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      if (!path.endsWith('/')) {
+        path = path.substring(0, path.lastIndexOf('/') + 1);
+      }
+      var base = document.createElement('base');
+      base.href = path || '/';
+      document.head.insertBefore(base, document.head.firstChild);
+    })();
+  </script>
 </head>
 <body>
+  <div id="open-help" class="open-help">
+    <p><strong>How to open on your phone:</strong> Use <strong>Google Chrome</strong> and paste this full link. This is a website, not Google Play.</p>
+    <p class="open-help-url" id="open-help-url"></p>
+    <button type="button" class="btn btn-small" id="copy-link-btn">Copy Link</button>
+    <button type="button" class="open-help-close" id="open-help-close" aria-label="Close">×</button>
+  </div>
+
   <div id="test-banner" class="test-banner">
     <p><strong>Test mode:</strong> This is a demo app for mobile testing. Data is saved on your phone only.</p>
     <button id="test-banner-dismiss" type="button" aria-label="Dismiss">×</button>
