@@ -3,102 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Rishta Ameen — Pakistani matrimonial and matchmaking service. Find your compatible life partner with trusted guidance.">
+  <meta name="description" content="Rishta Ameen — Test the matrimonial app on your mobile device.">
   <meta name="theme-color" content="#1a5c3a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Rishta Ameen">
-  <title>Rishta Ameen — Find Your Life Partner</title>
+  <title>Rishta Ameen — Test App</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="test-banner" class="test-banner">
+    <p><strong>Test mode:</strong> This is a demo app for mobile testing. Data is saved on your phone only.</p>
+    <button id="test-banner-dismiss" type="button" aria-label="Dismiss">×</button>
+  </div>
+
   <header class="header">
     <nav class="nav">
       <a href="#" class="logo">Rishta Ameen</a>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links" id="nav-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <span class="test-pill">Test App</span>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
+  <main class="app-main">
+    <section id="screen-home" class="screen active">
+      <div class="hero hero-compact">
         <p class="hero-tagline">Trusted Matchmaking</p>
-        <h1>Find Your Compatible Life Partner</h1>
+        <h1>Test Rishta Ameen on Your Phone</h1>
         <p class="hero-description">
-          Rishta Ameen connects families across Pakistan and abroad with
-          personalized, respectful matrimonial guidance.
+          Register a demo profile, browse sample rishtas, and try the mobile layout before launch.
         </p>
-        <a href="#contact" class="btn btn-primary">Get Started</a>
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary tab-link" data-screen="screen-register">Create Test Profile</button>
+          <button type="button" class="btn btn-secondary tab-link" data-screen="screen-browse">Browse Profiles</button>
+        </div>
       </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About Rishta Ameen</h2>
-        <p>
-          We understand that marriage is one of life's most important decisions.
-          Our bureau provides confidential, family-oriented matchmaking with a
-          focus on compatibility, values, and shared goals.
-        </p>
-      </div>
-    </section>
-
-    <section id="services" class="section section-alt">
-      <div class="container">
-        <h2>Our Services</h2>
+      <div class="section section-compact">
         <div class="cards">
           <article class="card">
-            <h3>Profile Registration</h3>
-            <p>Create a detailed profile to be matched with compatible candidates.</p>
+            <h3>1. Register</h3>
+            <p>Fill in a test profile with your details.</p>
           </article>
           <article class="card">
-            <h3>Personalized Matching</h3>
-            <p>Our team reviews preferences and suggests suitable rishtas.</p>
+            <h3>2. Browse</h3>
+            <p>View demo profiles and your saved profile.</p>
           </article>
           <article class="card">
-            <h3>Family Coordination</h3>
-            <p>We facilitate introductions between families with care and discretion.</p>
+            <h3>3. Test</h3>
+            <p>Tap buttons, menu, and forms on your mobile screen.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>Ready to begin your search? Reach out to our team today.</p>
-        <a href="mailto:info@rishtaameen.pk" class="btn btn-secondary">info@rishtaameen.pk</a>
+    <section id="screen-register" class="screen">
+      <div class="screen-header">
+        <h2>Register Test Profile</h2>
+        <p>Create a profile to test how registration works on mobile.</p>
       </div>
+      <form id="register-form" class="form">
+        <label>
+          Full Name
+          <input name="name" type="text" required placeholder="Your name">
+        </label>
+        <label>
+          Age
+          <input name="age" type="number" min="18" max="70" required placeholder="25">
+        </label>
+        <label>
+          City
+          <input name="city" type="text" required placeholder="Lahore">
+        </label>
+        <label>
+          Education
+          <input name="education" type="text" placeholder="MBA, MBBS, etc.">
+        </label>
+        <label>
+          Profession
+          <input name="profession" type="text" placeholder="Your job">
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" required placeholder="03xx-xxxxxxx">
+        </label>
+        <label>
+          About
+          <textarea name="about" rows="4" placeholder="Short introduction"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Save Test Profile</button>
+      </form>
+    </section>
+
+    <section id="screen-browse" class="screen">
+      <div class="screen-header">
+        <h2>Browse Profiles</h2>
+        <p>Demo rishtas plus any profile you register for testing.</p>
+      </div>
+      <div id="profile-list" class="profile-list"></div>
+    </section>
+
+    <section id="screen-profile" class="screen">
+      <div class="screen-header">
+        <h2>My Profile</h2>
+        <p>Your saved test profile on this device.</p>
+      </div>
+      <div id="my-profile-content"></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2026 Rishta Ameen. All rights reserved.</p>
-  </footer>
+  <nav class="bottom-nav" aria-label="App navigation">
+    <button type="button" class="tab-btn active" data-screen="screen-home">Home</button>
+    <button type="button" class="tab-btn" data-screen="screen-register">Register</button>
+    <button type="button" class="tab-btn" data-screen="screen-browse">Browse</button>
+    <button type="button" class="tab-btn" data-screen="screen-profile">My Profile</button>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
   <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('nav-menu');
-    toggle.addEventListener('click', () => {
-      const open = menu.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded', open);
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    });
-    menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
+    document.querySelectorAll('.tab-link').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const screen = btn.dataset.screen;
+        document.querySelectorAll('.screen').forEach((el) => {
+          el.classList.toggle('active', el.id === screen);
+        });
+        document.querySelectorAll('.tab-btn').forEach((tab) => {
+          tab.classList.toggle('active', tab.dataset.screen === screen);
+        });
       });
     });
   </script>

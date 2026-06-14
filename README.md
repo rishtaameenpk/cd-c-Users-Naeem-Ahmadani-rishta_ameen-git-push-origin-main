@@ -1,71 +1,60 @@
-# Rishta Ameen
+# Rishta Ameen — Mobile Test App
 
-Pakistani matrimonial and matchmaking platform helping individuals find compatible life partners.
+Pakistani matrimonial platform with a **demo test app** you can try on your phone.
 
-## Fix the 404 — Enable GitHub Pages (required once)
+## Test on your phone now
 
-The **404 error** means GitHub Pages is not turned on yet. The site files are ready; you only need to enable hosting:
-
-### Option A — Easiest (recommended)
+### Step 1 — Enable GitHub Pages (one time)
 
 1. Open: https://github.com/rishtaameenpk/cd-c-Users-Naeem-Ahmadani-rishta_ameen-git-push-origin-main/settings/pages
-2. Under **Build and deployment** → **Source**, choose **Deploy from a branch**
-3. Under **Branch**, select **`main`** and folder **`/docs`**, then click **Save**
-4. Wait 1–2 minutes, then open on your phone:
+2. **Source:** Deploy from a branch
+3. **Branch:** `main` → folder **`/docs`**
+4. Click **Save**, wait 1–2 minutes
 
-   **https://rishtaameenpk.github.io/cd-c-Users-Naeem-Ahmadani-rishta_ameen-git-push-origin-main/**
-
-### Option B — GitHub Actions
-
-1. Open the same **Settings → Pages** link above
-2. Under **Source**, choose **GitHub Actions**
-3. Go to **Actions** tab → run **Deploy to GitHub Pages** workflow (or push any change to `main`)
-4. Wait for the green checkmark, then open the URL above
-
----
-
-## View on Your Mobile Device
-
-Once Pages is enabled:
+### Step 2 — Open the test app
 
 **https://rishtaameenpk.github.io/cd-c-Users-Naeem-Ahmadani-rishta_ameen-git-push-origin-main/**
 
-### Quick steps
+## What you can test
 
-1. On your phone, open **Chrome** or **Safari**
-2. Paste the URL above
-3. Use the menu icon (☰) in the top-right on small screens
+| Screen | What to try |
+|--------|-------------|
+| **Home** | Read intro, tap Create Test Profile / Browse Profiles |
+| **Register** | Fill form with your details, tap Save Test Profile |
+| **Browse** | View 3 demo profiles + your saved profile, tap Show Interest |
+| **My Profile** | See your saved test profile on this phone |
 
-### Add to Home Screen (optional)
+Data is stored **only on your device** (demo mode). Nothing is sent to a server.
 
-- **iPhone (Safari):** Share → **Add to Home Screen**
-- **Android (Chrome):** Menu (⋮) → **Add to Home screen**
+## Install like an app (optional)
 
----
+- **iPhone:** Safari → Share → Add to Home Screen
+- **Android:** Chrome → Menu → Add to Home screen
 
-## Project Structure
-
-```
-├── docs/               # GitHub Pages site (deployed folder)
-│   ├── index.html
-│   └── css/style.css
-├── index.html          # Same landing page (root copy)
-├── css/style.css
-├── .cursor/            # Cursor Cloud Agent configuration
-└── .github/workflows/  # GitHub Actions Pages deployment
-```
-
-## Local Development
+## Local testing (on computer)
 
 ```bash
+cd docs
 python3 -m http.server 8080
 ```
 
-Then visit `http://localhost:8080`.
+Open `http://localhost:8080` in your browser (use phone on same Wi‑Fi with your computer's IP if needed).
 
-## Cursor Cloud Agents
+## Project structure
 
-This repository is configured for [Cursor Cloud Agents](https://cursor.com/docs/cloud-agent).
+```
+docs/
+├── index.html       # Mobile test app
+├── js/app.js        # Register, browse, profile logic
+├── css/style.css    # Mobile-first styles
+├── manifest.json    # Installable web app
+├── sw.js            # Offline support
+└── icons/           # App icons
+```
+
+## Note
+
+This is a **test/demo web app**, not the full native Android/iOS app. It lets you check layout, forms, and navigation on your phone before a full launch.
 
 ## License
 
